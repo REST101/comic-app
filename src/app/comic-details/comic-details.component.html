@@ -1,0 +1,32 @@
+
+<mat-dialog-content>
+
+  <div class="row">
+    <div class="column">
+      <img (click)="comicDialogDetails(data)" height="500" width="100%" src="{{data.thumbnail.path}}.{{data.thumbnail.extension}}">
+    </div>
+    <div class="column">
+        <h2 style="color:#1483F3;">{{data.title}}</h2>
+      <p>{{data.description}}</p>
+
+      <h3>Cast</h3>
+      <span *ngFor="let item of data.characters.items">
+        {{item.name}},
+      </span>
+
+      <h3>Crew</h3>
+      <span *ngFor="let item of data.creators.items">
+        {{item.name}}({{item.role}}),
+      </span>
+
+
+  <h3>Released Date</h3>
+  <p>{{data.dates[0].date | date}}</p>
+
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>OK</button>
+</mat-dialog-actions>

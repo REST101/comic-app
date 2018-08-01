@@ -1,0 +1,29 @@
+<div fxLayout="column" fxLayoutGap="0.5px">
+  <div fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <mat-card class="card-picture" *ngFor="let data of dataList?.data?.results">
+      <mat-card-content>
+          <div class="row">
+      
+              <div class="column">
+                  <img (click)="comicDialogDetails(data)" height="300" width="100%" style="cursor: pointer;" src="{{data.thumbnail.path}}.{{data.thumbnail.extension}}">
+                </div>
+          
+                <div class="column">
+                    <h4 (click)="comicDialogDetails(data)" style="color:#1483F3;cursor: pointer;">{{data.title}}</h4>
+                    <p>
+                        {{data.description}}
+                    </p>
+
+                    <p>
+                        <button style="float: right;background-color:#4BEC81; color:white; weight: bold;" mat-raised-button>${{data.prices[0].price}}</button>
+                    </p>
+                </div>
+          
+            </div>
+          
+        
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
